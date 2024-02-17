@@ -36,7 +36,7 @@
             event.preventDefault();
             var formData = new FormData(this);
             formData.append("content", "İsim: " + formData.get("isim") + "\nSorun: " + formData.get("sorun")); // İsim ve sorunu birleştirip "content" alanına ekle
-            fetch('https://discord.com/api/webhooks/1208458125410181192/_ZAKj9mOFzieHA8BJrjW1_WEtm0Ds1LLwsLU44fwECIH362YHRTpMbE550bEqm4fUHZ7', {
+            fetch('https://discord.com/api/webhooks/1208493788818047046/Uxj2PZwdf7uGVsV-hJ9-6CGb901ocYjLxhKN9SH_1xl22nDO9kIjOsNjJYOnfmN7Skpo', {
                 method: 'POST',
                 body: formData
             }).then(response => {
