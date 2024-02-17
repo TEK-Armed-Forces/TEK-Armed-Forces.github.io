@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Destek - TEK</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<div class="kutu">
+    <form id="discordForm">
+
+        <label for="content">İsim:</label>
+
+        <input type="text" id="isim" name="content" required>
+
+        <br>
+
+        <label for="content">Sorun:</label>
+
+        <input type="text" id="content" name="content" required>
+
+        <br>
+
+        <label for="file" class="ek">Ek eklemek için tıklayın</label>
+
+        <input type="file" id="file" name="file" accept="image/*,video/*">
+
+        <br>
+
+        <input type="submit" value="Gönder">
+
+    </form>
+</div>
+
+<div id="file-list"></div>
+
+    <script>
+
+        document.getElementById('discordForm').addEventListener('submit', function(event) {
+
+            event.preventDefault();
+
+            var formData = new FormData(this);
+
+            fetch('https://discord.com/api/webhooks/1208458125410181192/_ZAKj9mOFzieHA8BJrjW1_WEtm0Ds1LLwsLU44fwECIH362YHRTpMbE550bEqm4fUHZ7', {
+
+                method: 'POST',
+
+                body: formData
+
+            }).then(response => {
+
+                if (response.ok) {
+
+                    alert('Başarıyla gönderildi, destekleriniz için sağ,olun.');
+
+                } else {
+
+                    alert('Bir hata oluştu, Lütfen tekrar deneyin.');
+
+                }
+
+            }).catch(error => {
+
+                console.error('Hata:', error);
+
+                alert('Bir hata oluştu, Lütfen tekrar deneyin.');
+
+            });
+
+        });
+
+        
+
+    </script>
+
+</body>
+
+</html>
