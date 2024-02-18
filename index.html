@@ -19,13 +19,123 @@
             </nav>
         </header>
         <section>
-<Label>| TEK | Turkish Armed Forces</Label>
-<img id="Mainfoto" src="https://tr.rbxcdn.com/6453cf562003faef88d5b354b2c7e206/768/432/Image/Png" alt="" width="500">
+            <div class="fotoveyazı">
+                <Label>| TEK | Turkish Armed Forces</Label>
+                <div class="br">.</div>
+                <img class="Mainfoto" src="https://tr.rbxcdn.com/6453cf562003faef88d5b354b2c7e206/768/432/Image/Png" alt="" width="500">                
+            </div>
+
+            <div class="announcement-board">
+                <h2>Anons Panosu</h2>
+                <form id="announcement-form">
+                    <select id="name-select">
+                        <option value="">İsminizi seçin...</option>
+                        <option value="A.F.E.">A.F.E.</option>
+                        <option value="Kullanıcı 2">Kullanıcı 2</option>
+                        <option value="Kullanıcı 3">Kullanıcı 3</option>
+                    </select>
+                    <input type="password" id="password-input" placeholder="Şifrenizi girin...">
+                    <textarea id="announcement-input" placeholder="Anonsunuzu girin..."></textarea>
+                    <button type="submit">Ekle</button>
+                </form>
+                <ul id="announcement-list">
+                    <!-- Anonslar buraya eklenecek -->
+                </ul>
+            </div>
+
         </section>
         <footer>
             <p>Telif Hakkı Yok © 2024. Tüm hakları saklı değildir.</p>
         </footer>
-        <script src="script.js"></script>
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('announcement-form');
+    const nameSelect = document.getElementById('name-select');
+    const passwordInput = document.getElementById('password-input');
+    const announcementInput = document.getElementById('announcement-input');
+    const list = document.getElementById('announcement-list');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const name = nameSelect.value.trim();
+        const password = passwordInput.value.trim(); // Şifre alınır
+        const announcement = announcementInput.value.trim();
+        if (name !== '' && announcement !== '') {
+            if (validatePassword(name, password)) { // Şifre doğrulama kontrolü
+                addAnnouncement(name, announcement);
+                nameSelect.value = '';
+                passwordInput.value = '';
+                announcementInput.value = '';
+            } else {
+                alert('Şifre hatalı!'); // Hatalı şifre uyarısı
+            }
+        }
+    });
+
+    function validatePassword(username, password) {
+        // Kullanıcı adı ve şifreyi doğrula
+        // Bu işlevi kendi şifre doğrulama mekanizmanıza göre uyarlayın
+        // Örnek: Sabit şifre kullanımı
+        const passwords = {
+            "A.F.E.": "Şifre123",
+            "Kullanıcı 2": "sifre2",
+            "Kullanıcı 3": "sifre3"
+        };
+        return passwords[username] === password;
+    }
+
+    function addAnnouncement(name, announcement) {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${name}: ${announcement}`;
+        
+        const dateSpan = document.createElement('span');
+        dateSpan.textContent = getCurrentDate();
+        dateSpan.classList.add('date');
+        listItem.appendChild(dateSpan);
+        
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Sil';
+        deleteButton.classList.add('delete-btn');
+        deleteButton.addEventListener('click', function() {
+            const password = prompt('Şifrenizi girin:');
+            if (validatePassword(name, password)) { // Şifre doğrulama kontrolü
+                listItem.remove();
+                saveAnnouncements();
+            } else {
+                alert('Şifre hatalı!'); // Hatalı şifre uyarısı
+            }
+        });
+        listItem.appendChild(deleteButton);
+        
+        list.appendChild(listItem);
+        saveAnnouncements();
+    }
+
+    function getCurrentDate() {
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+        return now.toLocaleDateString('en-US', options);
+    }
+
+    function loadAnnouncements() {
+        const announcements = JSON.parse(localStorage.getItem('announcements')) || [];
+        announcements.forEach(function(item) {
+            addAnnouncement(item.name, item.announcement);
+        });
+    }
+
+    function saveAnnouncements() {
+        const announcementItems = Array.from(list.children).map(function(item) {
+            const parts = item.textContent.split(': ');
+            return { name: parts[0], announcement: parts.slice(1, -2).join(': ') }; // Son iki öğeyi (tarih ve sil düğmesi) dikkate alma
+        });
+        localStorage.setItem('announcements', JSON.stringify(announcementItems));
+    }
+
+    loadAnnouncements();
+});
+
+        </script>
 
     </body>
 </html>
