@@ -64,4 +64,9 @@ footer {
     text-align: center;
 }
 
+label{
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+}
 
