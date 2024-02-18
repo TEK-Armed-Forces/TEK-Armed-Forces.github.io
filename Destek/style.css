@@ -73,3 +73,44 @@ input[type="submit"]:hover {
     font-weight: bold;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
 
+    .kutu2 {
+        border: 2px solid rgb(66, 66, 66); /* Gri border */
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #161515; /* Arka plan rengi */
+        float: right;
+    }
+
+    .Profilebar {
+        border: 2px solid rgb(46, 42, 42); /* Gri border */
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgb(66, 66, 66); /* Arka plan rengi */
+        float: right;
+        width: 110px;
+        height: 10px;
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bold;
+    }
+
+    a{
+        color: #00000000;
+    }
+
+    #foto{
+        border-radius: 100%;
+    }
+
+    .br{
+        color: #161515;
+    }
+
+    .Lbl{
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bold;
+    }
+
+
+    
