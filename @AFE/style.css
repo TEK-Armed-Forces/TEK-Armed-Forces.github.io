@@ -58,3 +58,88 @@ body {
     .br{
         color: rgb(66, 66, 66);
     }
+
+    #roblox{
+        background-color: black;
+        width: 100%;
+        height: 30px;
+        color: white;
+        font-weight: bolder;
+        border: 2px black solid ;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        transition: background-color 0.4s ease;
+        font-size: larger;
+    }
+
+    #roblox:hover{
+        background-color: white;
+        width: 100%;
+        height: 30px;
+        color: black;
+        font-weight: bolder;
+        border: 2px black solid ;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0;
+        transition: background-color 0.4s ease;
+    }
+
+    #youtube{
+        background-color: red;
+        width: 100%;
+        height: 30px;
+        color: white;
+        font-weight: bolder;
+        border: 2px black solid ;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        transition: background-color 0.4s ease;
+        font-size: larger;
+    }
+
+    #youtube:hover{
+        background-color: white;
+        width: 100%;
+        height: 30px;
+        color: red;
+        font-weight: bolder;
+        border: 2px black solid ;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0;
+        transition: background-color 0.4s ease;
+    }
+
+    #Discord{
+        background-color: #5865F2;
+        width: 100%;
+        height: 30px;
+        color: white;
+        font-weight: bolder;
+        border: 2px black solid ;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        transition: background-color 0.4s ease;
+        font-size: larger;
+    }
+
+    #Discord:hover{
+        background-color: white;
+        width: 100%;
+        height: 30px;
+        color: #5865F2;
+        font-weight: bolder;
+        border: 2px black solid ;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0;
+        transition: background-color 0.4s ease;
+    }
+      
